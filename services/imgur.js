@@ -10,11 +10,8 @@ module.exports.getAll = function() {
 	//json-server
 	const imgur_url = 'http://localhost:3010/data' 
 
-	const req = axios({
-  		method:'get',
-  		url: imgur_url,
-  		headers: {'Authorization': 'Client-ID: ' + my_id}
-	})
+	const req = axios.get(imgur_url, {
+  		headers: {'Authorization': 'Client-ID: ' + my_id} })
 
 	return req
 		.then(function(response) {
@@ -26,3 +23,5 @@ module.exports.getAll = function() {
 		})
 
 }
+
+

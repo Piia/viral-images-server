@@ -7,30 +7,34 @@ const mongo = require('./services/mongo')
 
 app.use(bodyParser.json())
 app.use(cors())
+app.use(express.static('build'))
  
-const imgurSetup = function() { 
+const imgurInit = function() { 
 	imgur.getAll()
 	 	.then(response => {
-	    	console.log("index.js:imgurSetup .then happened")
+	    	console.log("index.js:imgurInit succeeded")
 	    	imgurData = response
 	  	})
 	  	.catch(error => {
-	    	console.log("error in index.js: imgurSetup")
+	    	console.log("error in index.js: imgurInit")
 	  	});
 }
 let imgurData;
-imgurSetup() 
+imgurInit() 
+
 
 /*
-const mongoSetup = function() {
+const mongoInit = function() {
 	mongo.pushAll(imgurData)
 	.then(response => {
-    	console.log("mongoSetup")
+    	console.log("index.js:mongoInit succeeded")
   	})
   	.catch(error => {
-    	console.log("error in index.js: mongoSetup: mongo.pushAll")
+    	console.log("error in index.js: mongoInit: in call mongo.pushAll")
   	});
-}*/
+}
+mongoInit()
+*/
 
 app.get('/api/', (request, response) => {
 	response.json(imgurData)
