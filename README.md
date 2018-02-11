@@ -12,4 +12,4 @@ npm run watch
 
 Then either download, install and build viral-images-client and transfer created build-folder to this project's folder OR comment off ```app.use(express.static('build'))```.
 
-Also, you need to make your own hardcoded metadata file db.json by requesting it from Imgur-API with Postman etc. Have fun!
+Also, **you need to make your own hardcoded metadata file db.json** by requesting it from Imgur-API with Postman etc. Have fun!
